@@ -261,6 +261,9 @@ func (e *DurationEncoder) UnmarshalText(text []byte) error {
 	return nil
 }
 
+// FullEnCoder 完成的encoder
+type FullEnCoder func(*buffer.Buffer, Entry, []Field) (*buffer.Buffer, error)
+
 // A CallerEncoder serializes an EntryCaller to a primitive type.
 type CallerEncoder func(EntryCaller, PrimitiveArrayEncoder)
 
@@ -341,6 +344,9 @@ type EncoderConfig struct {
 	// Configures the field separator used by the console encoder. Defaults
 	// to tab.
 	ConsoleSeparator string `json:"consoleSeparator" yaml:"consoleSeparator"`
+
+	//FullEnCoder
+	FullEnCoder FullEnCoder `json:"full_en_coder" yaml:"fullEnCoder"`
 }
 
 // ObjectEncoder is a strongly-typed, encoding-agnostic interface for adding a

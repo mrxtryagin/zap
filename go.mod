@@ -16,4 +16,3 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 )
 
-replace go.uber.org/zap v1.25.0 => github.com/mrxtryagin/zap v0.0.0-20230825131617-98e9c4fe632c
